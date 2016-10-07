@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>colorpicker</title>
+<link rel="stylesheet" type="text/css" href="css/colorpicker.css">
+<script type="text/javascript" src="js/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="js/colorpicker.js"></script>
+<style type="text/css">
+	body{position: relative;height: 600px;}
+	.fk-colorPicker{position: absolute;left: 20px;top: 20px; width:25px; height:25px; line-height:25px; border:1px solid #999; cursor:pointer; }
+	.fk-colorPicker1{position: absolute;left: 300px;top: 20px; width:25px; height:25px; line-height:25px; border:1px solid #999; cursor:pointer; }
+  .fk-colorPicker2{position: absolute;left: 500px;top: 400px; width:25px; height:25px; line-height:25px; border:1px solid #999; cursor:pointer; }
+	.fk-colorPicker3{position: absolute;right: 10px;top: 400px; width:25px; height:25px; line-height:25px; border:1px solid #999; cursor:pointer; }
+</style>
+</head>
+<body>
+    <div class="J_mContentBgColorPicker fk-colorPicker" style="background-color: rgb(252, 192, 46);"></div>
+    <div class="J_mContentBgColorPicker1 fk-colorPicker1" style="background-color: #fa23d6;"></div>
+    <div class="J_mContentBgColorPicker2 fk-colorPicker2" style="background-color: #14fa2e;"></div>
+    <div class="J_mContentBgColorPicker3 fk-colorPicker3" style="background-color: rgb(252, 192, 46);"></div>
+
+    <span>颜色选择器控件</span>
+    <label>传出的颜色值：</label><span class="J_outprint"></span>
+
+<script type="text/javascript">
+	$(function(){
+		function onchange(hsb, hex, rgb){
+			console.log(hsb+';'+hex+';'+rgb);
+			$('.J_outprint').text(hsb+';'+hex+';'+rgb);
+		}
+
+		  //调用颜色插件faiColorPickerAlp，参数设置详见faiColorPickerAlp
+      $(".J_mContentBgColorPicker").on('click',function(){
+        $(this).faiColorPickerAlp({
+            onchange:onchange
+        });
+      });
+      $(".J_mContentBgColorPicker1").on('click',function(){
+        $(".J_mContentBgColorPicker1").faiColorPickerAlp({
+            onchange:onchange
+        });
+      });
+      $(".J_mContentBgColorPicker2").on('click',function(){
+        $(".J_mContentBgColorPicker2").faiColorPickerAlp({
+            onchange:onchange
+        });
+      });
+      $(".J_mContentBgColorPicker3").on('click',function(){
+        $(".J_mContentBgColorPicker3").faiColorPickerAlp({
+            onchange:onchange
+        });
+      });
+
+	});
+</script>
+</body>
+
+</html>
